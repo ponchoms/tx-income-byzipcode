@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
 
   map.on('load', function() {
   // the rest of the code will go in here
-  var layers = ['$0-$20,000', '$20,000-$30,000', '$30,000-$45,000', '$45,000-$60,000', '$60,000-$75,000', '$75,000-$90,000', '$90,000+'];
+  var layers = ['$0 - $20k', '$20k - $30k', '$30k - $45k', '$45k - $60k', '$60k - $75k', '$75k - $90k', '$90k+'];
   var colors = ['#ffff79', '#cbe259', '#96c53b', '#5fa81f', '#3d9810', '#0b8a00', '#096b00'];
   map.fitBounds([[-106.6,25.8],[-93.5,36.5]]);
 
@@ -40,9 +40,7 @@ map.on('mousemove', function(e) {
   });
 
   if (zips.length > 0) {
-    document.getElementById('pd').innerHTML = '<h3><strong>' + new_zip_data[0].properties['City'] + '</strong></h3><p><strong><em>' + new_zip_data[0].properties['Avg. Income/H/hold'] + '</strong> Median Income per Zip Code</em></p>';
-  } else {
-    document.getElementById('pd').innerHTML = '<p>Hover over a zip code!</p>';
+    document.getElementById('pd').innerHTML = '<h3><strong>$ <em>' + zips[0].properties['Avg. Income/H/hold'] + '</strong></h3><p><strong></em>' + '</h4>' +  zips[0].properties['City'] + ', ' + zips[0].properties['Zip Code'] ;
   }
 });
 
